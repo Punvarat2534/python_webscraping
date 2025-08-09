@@ -1,0 +1,24 @@
+1. Docker-based Installation (Recommended for ease of setup and isolation):
+Install Docker and Docker Compose. 
+## sudo apt-get update
+## sudo apt-get install ca-certificates curl gnupg lsb-release
+## curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+## echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+## sudo apt-get update
+## sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+------------------------------------------------------------------------------------
+Download Airflow Docker Compose file.
+## curl -LfO 'https://airflow.apache.org/docs/apache-airflow/stable/docker-compose.yaml'
+-------------------------------------------------------------------------------------
+Create necessary directories and set environment variable:
+## mkdir -p ./dags ./logs ./plugins
+## echo -e "AIRFLOW_UID=$(id -u)" > .env
+--------------------------------------------------------------------------------------
+Initialize the database.
+##docker compose up airflow-init
+---------------------------------------------------------------------------------------
+Run Airflow.
+##docker compose up -d 
+--------------------------------------------------------------------------------------
+2.Open in vs code
+#code . 

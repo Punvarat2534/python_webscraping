@@ -1,0 +1,9 @@
+------- โจทย์ข้อ 1 -------------
+SELECT * FROM public.research order by years desc; 
+------- โจทย์ข้อ 2 -------------
+SELECT author,count(*) as n FROM public.research group by author order by n desc limit 10;
+------- โจทย์ข้อ 3 -------------
+SELECT * FROM public.research where data_resource = 'Scopus' and years < 2022
+------- โจทย์ข้อ 4 -------------
+SELECT author,count(*) as n FROM public.research where university like '%สงขลานครินทร์%' group by author order by n desc limit 5;
+
